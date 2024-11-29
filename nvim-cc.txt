@@ -1,0 +1,1 @@
+cargo run -- -i test/color.conf -d test/dict.toml -o new-color.conf

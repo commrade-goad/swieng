@@ -1,0 +1,5 @@
+active_border_one = "rgba(f5fcffff)"
+active_border_two = "rgba(adcbfeff)"
+inactive_border = "rgba(595959ff)"
+gradient_rotation = "45deg"
+group_title_text_color = "rgb(000000)"
