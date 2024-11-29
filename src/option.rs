@@ -5,6 +5,7 @@ pub enum ArgsOption {
     FileIn,
     FileOut,
     FileDict,
+    Delimiter,
     Other,
 }
 
@@ -13,6 +14,7 @@ pub struct ProgramOption {
     pub file_in: String,
     pub file_out: String,
     pub file_dict: String,
+    pub delimiter: String,
 }
 
 pub fn get_args() -> Vec<String> {
@@ -29,6 +31,7 @@ pub fn parse_args(args: Vec<String>, min: usize) -> Option<ProgramOption> {
         file_dict: String::new(),
         file_out: String::new(),
         file_in: String::new(),
+        delimiter: "%".to_string(),
     };
 
     let mut counter = 0;
@@ -37,6 +40,7 @@ pub fn parse_args(args: Vec<String>, min: usize) -> Option<ProgramOption> {
             "-i" | "--input" => ArgsOption::FileIn,
             "-o" | "--output" => ArgsOption::FileOut,
             "-d" | "--dictionary" => ArgsOption::FileDict,
+            "-e" | "--delimiter" => ArgsOption::Delimiter,
             _ => ArgsOption::Other,
         };
 
@@ -55,6 +59,7 @@ pub fn parse_args(args: Vec<String>, min: usize) -> Option<ProgramOption> {
             ArgsOption::FileIn => res.file_in = value.clone(),
             ArgsOption::FileOut => res.file_out = value.clone(),
             ArgsOption::FileDict => res.file_dict = value.clone(),
+            ArgsOption::Delimiter => res.delimiter = value.clone(),
             ArgsOption::Other => {}
         }
         counter += 1;
